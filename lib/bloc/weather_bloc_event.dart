@@ -1,4 +1,5 @@
-part of 'weather_bloc_bloc.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+part of 'weather_bloc.dart';
 
 sealed class WeatherBlocEvent extends Equatable {
   const WeatherBlocEvent();
@@ -7,4 +8,13 @@ sealed class WeatherBlocEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class FetchWeatherEvent extends WeatherBlocEvent {}
+class FetchWeatherEvent extends WeatherBlocEvent {
+  final Position position;
+
+  const FetchWeatherEvent({
+    required this.position,
+  });
+
+  @override
+  List<Object> get props => [position];
+}
